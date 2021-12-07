@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/drawable/card_edge_purple.xml" value="0.2777777777777778" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.2777777777777778" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/drawable/ic_delete_red.xml" value="0.2777777777777778" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/drawable/ic_no_image.xml" value="0.2777777777777778" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/drawable/pp_camera.xml" value="0.24114583333333334" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/drawable/pp_galery.xml" value="0.24114583333333334" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/drawable/pp_ic_no_image.xml" value="0.24114583333333334" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/layout/activity_camera.xml" value="0.38645833333333335" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/layout/activity_galery.xml" value="0.3840425531914894" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/layout/activity_main.xml" value="0.33425925925925926" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/layout/dialog_pick_image.xml" value="0.38645833333333335" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/layout/item_photo.xml" value="0.38645833333333335" />
+        <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/xml/file_provider_paths.xml" value="0.38645833333333335" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
