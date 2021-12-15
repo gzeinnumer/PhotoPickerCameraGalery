@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -104,15 +105,19 @@ public class GaleryActivity extends AppCompatActivity {
                     if (mPhotoFile.length() > 0) {
                         binding.btnSimpan.setText("Simpan");
                     }
+
+                    Glide.with(GaleryActivity.this)
+                            .load(mPhotoFile)
+                            .error(R.drawable.pp_ic_no_image)
+                            .placeholder(R.drawable.pp_ic_no_image)
+                            .into(binding.imgFoto);
                 } catch (IOException e) {
                     e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Gagal mengambil data", Toast.LENGTH_SHORT).show();
+                } catch (NullPointerException e){
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Gagal mengambil data", Toast.LENGTH_SHORT).show();
                 }
-
-                Glide.with(GaleryActivity.this)
-                        .load(mPhotoFile)
-                        .error(R.drawable.pp_ic_no_image)
-                        .placeholder(R.drawable.pp_ic_no_image)
-                        .into(binding.imgFoto);
             }
         }
     }
