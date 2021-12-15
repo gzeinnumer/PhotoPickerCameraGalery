@@ -1,7 +1,5 @@
 package com.gzeinnumer.photopickercameragalery.ui.main;
 
-import static com.gzeinnumer.photopickercameragalery.helper.GblFunction.iParse;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         if (position.equals("-1"))
             adapter.add(message);
         else
-            adapter.updateList(iParse(position), message);
+            adapter.updateList(Integer.parseInt(position), message);
     }
 
     private PhotoAdapter adapter;
@@ -72,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void imageDelete(String adapterPosition) {
-                adapter.removeList(iParse(adapterPosition));
+                adapter.removeList(Integer.parseInt(adapterPosition));
             }
         });
 

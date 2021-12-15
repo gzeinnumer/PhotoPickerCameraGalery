@@ -23,4 +23,9 @@
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
         <item name="colorOnPrimary">@color/white</item>
     </style>
+
+    <style name="MyTextContent.Background.White">
+        <item name="android:background">@drawable/shape_white</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

@@ -1,8 +1,5 @@
 package com.gzeinnumer.photopickercameragalery.adapter;
 
-
-import static com.gzeinnumer.photopickercameragalery.helper.GblFunction.s;
-
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.gzeinnumer.photopickercameragalery.databinding.ItemPhotoBinding;
+import com.gzeinnumer.photopickercameragalery.helper.dpi.DialogPreviewImage;
 
 import java.util.ArrayList;
 
@@ -21,18 +19,23 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
 
     private final ArrayList<String> list;
     private final FragmentManager fragmentManager;
-    private final int max;
+    private int max;
     private int type = 1; //1->input 2->display
+
     public PhotoAdapter(FragmentManager fragmentManager, int max) {
         this.fragmentManager = fragmentManager;
         this.max = max;
-        list = new ArrayList<>();
+        this.list = new ArrayList<>();
     }
     public PhotoAdapter(FragmentManager fragmentManager, int max, int type) {
         this.fragmentManager = fragmentManager;
         this.max = max;
         this.type = type;
-        list = new ArrayList<>();
+        this.list = new ArrayList<>();
+    }
+
+    public void setMax(int max) {
+        this.max = max;
     }
 
     public void setType(int type) {
@@ -44,25 +47,26 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
     }
 
     public void add(String message) {
-        list.add(message);
+        this.list.add(message);
         triggerCallback();
         notifyItemInserted(list.size() - 1);
     }
 
     public void updateList(int position, String path){
-        list.set(position, path);
+        this.list.set(position, path);
         triggerCallback();
         notifyItemChanged(position);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void removeList(int position){
-        list.remove(position);
+        this.list.remove(position);
         triggerCallback();
         notifyDataSetChanged();
     }
 
     private void triggerCallback() {
-        if (list.size()==max){
+        if (this.list.size()==max){
             callbackVisibilty.visibilityAddButton(View.GONE);
         } else {
             callbackVisibilty.visibilityAddButton(View.VISIBLE);
@@ -78,30 +82,16 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.bindData(list.get(position), callbackVisibilty, callbackImage, type, fragmentManager);
-
-//        holder.itemBinding.imgDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                list.remove(position);
-////                notifyItemRemoved(position);
-//                notifyItemRangeChanged(position,list.size());
-//            }
-//        });
-
-//        holder.btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                list.remove(position);
-//                notifyItemRemoved(position);
-////                notifyItemRangeChanged(position,list.size());
-//            }
-//        });
     }
+
     private CallbackVisibilty callbackVisibilty;
+
     public interface CallbackVisibilty {
         void visibilityAddButton(int visibility);
     }
+
     private CallbackImage callbackImage;
+
     public interface CallbackImage {
         void imageEdit(String adapterPosition);
         void imageDelete(String adapterPosition);
@@ -145,18 +135,16 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
             }
             if (callbackVisibilty !=null){
                 itemBinding.cvImage.setOnClickListener(v -> {
-//                    new DialogPreviewImage(fragmentManager).setImage(data).show();
+                    new DialogPreviewImage(fragmentManager).setImage(data).show();
                 });
                 itemBinding.imgDelete.setOnClickListener(v -> {
-                    callbackImage.imageDelete(s(getAdapterPosition()));
+                    callbackImage.imageDelete(String.valueOf(getAdapterPosition()));
                 });
                 itemBinding.cvImage.setOnLongClickListener(v -> {
-                    callbackImage.imageEdit(s(getAdapterPosition()));
+                    callbackImage.imageEdit(String.valueOf(getAdapterPosition()));
                     return false;
                 });
             }
         }
-
-        private static final String TAG = "adasdabjfaklkla";
     }
 }
