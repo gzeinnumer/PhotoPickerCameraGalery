@@ -137,13 +137,15 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
                 itemBinding.cvImage.setOnClickListener(v -> {
                     new DialogPreviewImage(fragmentManager).setImage(data).show();
                 });
-                itemBinding.imgDelete.setOnClickListener(v -> {
-                    callbackImage.imageDelete(String.valueOf(getAdapterPosition()));
-                });
-                itemBinding.cvImage.setOnLongClickListener(v -> {
-                    callbackImage.imageEdit(String.valueOf(getAdapterPosition()));
-                    return false;
-                });
+                if (type==1){
+                    itemBinding.imgDelete.setOnClickListener(v -> {
+                        callbackImage.imageDelete(String.valueOf(getAdapterPosition()));
+                    });
+                    itemBinding.cvImage.setOnLongClickListener(v -> {
+                        callbackImage.imageEdit(String.valueOf(getAdapterPosition()));
+                        return false;
+                    });
+                }
             }
         }
     }
