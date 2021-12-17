@@ -1,6 +1,6 @@
 # PhotoPickerCameraGalery
 
-|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/tree/master/preview/preview1.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/tree/master/preview/preview2.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/tree/master/preview/preview3.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/tree/master/preview/preview4.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/tree/master/preview/preview5.jpg)|
+|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/preview/preview1.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/preview/preview2.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/preview/preview3.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/preview/preview4.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/preview/preview5.jpg)|
 |---|---|---|---|---|
 
 - [AndroidManifest.xml](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/AndroidManifest.xml)
