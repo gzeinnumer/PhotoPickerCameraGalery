@@ -65,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
         adapter.setCallbackImage(new PhotoAdapter.CallbackImage() {
             @Override
             public void imageEdit(String adapterPosition) {
-                pickFile(PickImageDialog.FileFrom.CAMERA, adapterPosition);
+//                pickFile(PickImageDialog.FileFrom.CAMERA, adapterPosition);
+                openDialog(adapterPosition);
             }
 
             @Override
@@ -80,18 +81,18 @@ public class MainActivity extends AppCompatActivity {
 
         binding.cvAddItem.setOnClickListener(view -> {
 //            pickFile(PickImageDialog.FileFrom.CAMERA, "-1");
-            openDialog();
+            openDialog("-1");
         });
     }
 
-    private void openDialog() {
+    private void openDialog(String adapterPosition) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         Fragment previous = getSupportFragmentManager().findFragmentByTag(PickImageDialog.TAG);
         if (previous != null) {
             transaction.remove(previous);
         }
         PickImageDialog dialog = PickImageDialog.newInstance(type -> {
-            pickFile(type, "-1");
+            pickFile(type, adapterPosition);
         });
         dialog.show(transaction, PickImageDialog.TAG);
     }
