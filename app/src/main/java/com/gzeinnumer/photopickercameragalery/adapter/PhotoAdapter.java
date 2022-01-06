@@ -93,8 +93,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
     private CallbackImage callbackImage;
 
     public interface CallbackImage {
-        void imageEdit(String adapterPosition);
-        void imageDelete(String adapterPosition);
+        void imageEdit(int adapterPosition);
+        void imageDelete(int adapterPosition);
     }
 
     public void setCallbackVisibilty(CallbackVisibilty callbackVisibilty) {
@@ -139,10 +139,10 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
                 });
                 if (type==1){
                     itemBinding.imgDelete.setOnClickListener(v -> {
-                        callbackImage.imageDelete(String.valueOf(getAdapterPosition()));
+                        callbackImage.imageDelete(getAdapterPosition());
                     });
                     itemBinding.cvImage.setOnLongClickListener(v -> {
-                        callbackImage.imageEdit(String.valueOf(getAdapterPosition()));
+                        callbackImage.imageEdit(getAdapterPosition());
                         return false;
                     });
                 }

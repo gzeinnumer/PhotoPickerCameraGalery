@@ -25,15 +25,14 @@ import java.util.Date;
 public class CameraActivity extends AppCompatActivity {
 
     private static final int REQUEST_TAKE_PHOTO = 2;
-    public static String KEY_DATA = "data";
+    public static String KEY_PATH = "path";
     public static String KEY_TITLE = "title";
     public static String KEY_POSITION = "position";
     private static File mPhotoFile;
     private ActivityCameraBinding binding;
     private FileCompressor mCompressor;
-    private String title = "";
-    private String data = "";
-    private String position = "";
+    private String title = "Take Foto";
+    private int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +49,9 @@ public class CameraActivity extends AppCompatActivity {
     private void initView() {
         if (getIntent().getStringExtra(KEY_TITLE) != null) {
             title = getIntent().getStringExtra(KEY_TITLE);
-            binding.tvToolbar.setText(title);
         }
-        if (getIntent().getStringExtra(KEY_DATA) != null) {
-            data = getIntent().getStringExtra(KEY_DATA);
-        }
-        if (getIntent().getStringExtra(KEY_POSITION) != null) {
-            position = getIntent().getStringExtra(KEY_POSITION);
-        }
+        position = getIntent().getIntExtra(KEY_POSITION, 0);
+        binding.tvToolbar.setText(title);
     }
 
     private void initTextWatcher() {
@@ -77,7 +71,7 @@ public class CameraActivity extends AppCompatActivity {
                 String data = binding.tvPath.getText().toString();
                 Intent intent = new Intent();
                 intent.putExtra(KEY_TITLE, title);
-                intent.putExtra(KEY_DATA, data);
+                intent.putExtra(KEY_PATH, data);
                 intent.putExtra(KEY_POSITION, position);
                 setResult(Activity.RESULT_OK, intent);
                 finish();//finishing activity
@@ -132,7 +126,7 @@ public class CameraActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Gagal mengambil data", Toast.LENGTH_SHORT).show();
-                } catch (NullPointerException e){
+                } catch (NullPointerException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Gagal mengambil data", Toast.LENGTH_SHORT).show();
                 }

@@ -33,6 +33,9 @@
     - [dialog_pick_image.xml](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/res/layout/dialog_pick_image.xml)
     - [dialog_preview_image.xml](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/res/layout/dialog_preview_image.xml)
     - [item_photo.xml](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/res/layout/item_photo.xml)
+    - [widget_photo_picker.xml](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/res/layout/widget_photo_picker.xml)
+  - values
+    - [themes.xml](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/res/values/themes.xml)
 - gradle
   - [build.gradle](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/build.gradle)
   - [build.gradle(app)](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/build.gradle)

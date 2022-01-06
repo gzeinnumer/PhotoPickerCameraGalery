@@ -22,10 +22,12 @@
         android:theme="@style/Theme.PhotoPickerCameraGalery">
         <activity
             android:name=".ui.camera.CameraActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".ui.galery.GaleryActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false" />
