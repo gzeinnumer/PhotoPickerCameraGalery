@@ -95,16 +95,17 @@ public class GaleryActivity extends AppCompatActivity {
                 Uri selectedImage = data.getData();
                 try {
                     mPhotoFile = mCompressor.compressToFile(new File(FGFile.getRealPathFromUri(getApplicationContext(), selectedImage)));
-                    binding.tvPath.setText(mPhotoFile.toString());
-                    if (mPhotoFile.length() > 0) {
-                        binding.btnSimpan.setText("Simpan");
-                    }
 
+                    binding.tvPath.setText(mPhotoFile.toString());
                     Glide.with(GaleryActivity.this)
                             .load(mPhotoFile)
                             .error(R.drawable.pp_ic_no_image)
                             .placeholder(R.drawable.pp_ic_no_image)
                             .into(binding.imgFoto);
+
+                    if (mPhotoFile.length() > 0) {
+                        binding.btnSimpan.setText("Simpan");
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Gagal mengambil data", Toast.LENGTH_SHORT).show();

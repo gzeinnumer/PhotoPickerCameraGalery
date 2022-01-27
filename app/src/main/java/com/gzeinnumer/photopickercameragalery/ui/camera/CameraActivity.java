@@ -114,12 +114,13 @@ public class CameraActivity extends AppCompatActivity {
                 try {
                     //setelah foto diambil, dan tampil di preview maka akan lansung disimpan ke folder yang di sudah diset sebelumnya
                     mPhotoFile = mCompressor.compressToFile(mPhotoFile);
+                    binding.tvPath.setText(mPhotoFile.toString());
                     Glide.with(CameraActivity.this)
                             .load(mPhotoFile)
                             .error(R.drawable.pp_ic_no_image)
                             .placeholder(R.drawable.pp_ic_no_image)
                             .into(binding.imgFoto);
-                    binding.tvPath.setText(mPhotoFile.toString());
+
                     if (mPhotoFile.length() > 0) {
                         binding.btnSimpan.setText("Simpan");
                     }
