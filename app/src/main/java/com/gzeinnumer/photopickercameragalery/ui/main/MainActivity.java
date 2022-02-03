@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import com.gzeinnumer.photopickercameragalery.adapter.PhotoAdapter;
@@ -37,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         initImageAdapter();
         binding.btnPath.setOnClickListener(v -> {
             StringBuilder path = new StringBuilder();
-            for (int i = 0; i < adapter.getList().size(); i++) {
-                path.append(i).append(". ").append(adapter.getList().get(i)).append("\n");
+            for (int i = 0; i < adapterPhoto.getList().size(); i++) {
+                path.append(i).append(". ").append(adapterPhoto.getList().get(i)).append("\n");
             }
             Toast.makeText(getApplicationContext(), path.toString(), Toast.LENGTH_SHORT).show();
         });
@@ -58,21 +57,21 @@ public class MainActivity extends AppCompatActivity {
         String message = data.getStringExtra(CameraActivity.KEY_PATH);
         int position = data.getIntExtra(CameraActivity.KEY_POSITION, 0);
         if (position == -1)
-            adapter.add(message);
+            adapterPhoto.add(message);
         else
-            adapter.updateList(position, message);
+            adapterPhoto.updateList(position, message);
     }
 
-    private PhotoAdapter adapter;
+    private PhotoAdapter adapterPhoto;
 
     private void initImageAdapter() {
-        adapter = new PhotoAdapter(getSupportFragmentManager(), 4);
-        binding.pp.rv.setAdapter(adapter);
-        adapter.setCallbackVisibilty(visibility -> {
+        adapterPhoto = new PhotoAdapter(getSupportFragmentManager(), 4);
+        binding.pp.rv.setAdapter(adapterPhoto);
+        adapterPhoto.setCallbackVisibilty(visibility -> {
             binding.pp.cvAddItem.setVisibility(visibility);
         });
 
-        adapter.setCallbackImage(new PhotoAdapter.CallbackImage() {
+        adapterPhoto.setCallbackImage(new PhotoAdapter.CallbackImage() {
             @Override
             public void imageEdit(int adapterPosition) {
 //                pickFile(PickImageDialog.FileFrom.CAMERA, adapterPosition);
@@ -81,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void imageDelete(int adapterPosition) {
-                adapter.removeList(adapterPosition);
+                adapterPhoto.removeList(adapterPosition);
             }
         });
 

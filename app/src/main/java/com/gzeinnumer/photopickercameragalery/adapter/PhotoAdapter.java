@@ -14,10 +14,12 @@ import com.gzeinnumer.photopickercameragalery.databinding.ItemPhotoBinding;
 import com.gzeinnumer.photopickercameragalery.helper.dpi.DialogPreviewImage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
 
     private final ArrayList<String> list;
+    private ArrayList<ItemPhotoBinding> holders;
     private final FragmentManager fragmentManager;
     private int max;
     private int type = 1; //1->input 2->display
@@ -26,12 +28,27 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
         this.fragmentManager = fragmentManager;
         this.max = max;
         this.list = new ArrayList<>();
+        this.holders = new ArrayList<>(list.size());
+        initHolders();
     }
+
+    private void initHolders() {
+        for (int i = 0; i < list.size(); i++) {
+            holders.add(null);
+        }
+    }
+
+    public List<ItemPhotoBinding> getHolders() {
+        return holders;
+    }
+
     public PhotoAdapter(FragmentManager fragmentManager, int max, int type) {
         this.fragmentManager = fragmentManager;
         this.max = max;
         this.type = type;
         this.list = new ArrayList<>();
+        this.holders = new ArrayList<>(list.size());
+        initHolders();
     }
 
     public void setMax(int max) {
@@ -48,6 +65,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
 
     public void add(String message) {
         this.list.add(message);
+        this.holders.add(null);
         triggerCallback();
         notifyItemInserted(list.size() - 1);
     }
@@ -61,6 +79,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
     @SuppressLint("NotifyDataSetChanged")
     public void removeList(int position){
         this.list.remove(position);
+        this.holders.remove(position);
         triggerCallback();
         notifyDataSetChanged();
     }
@@ -81,6 +100,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, @SuppressLint("RecyclerView") int position) {
+        holders.set(position, ItemPhotoBinding.bind(holder.itemBinding.getRoot()));
         holder.bindData(list.get(position), callbackVisibilty, callbackImage, type, fragmentManager);
     }
 
