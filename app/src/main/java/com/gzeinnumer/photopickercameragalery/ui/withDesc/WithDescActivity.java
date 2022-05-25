@@ -85,7 +85,7 @@ public class WithDescActivity extends AppCompatActivity {
         });
 
         binding.pp.rv.hasFixedSize();
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         binding.pp.rv.setLayoutManager(layoutManager);
 
         binding.pp.cvAddItem.setOnClickListener(view -> {
