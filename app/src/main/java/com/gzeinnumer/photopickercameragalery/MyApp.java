@@ -10,7 +10,7 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        String externalFolderName = getApplicationContext().getString(R.string.app_name); //MyLibsTesting
+        String externalFolderName = "Download/"+getApplicationContext().getString(R.string.app_name); //MyLibsTesting
 
         FGDir.initExternalDirectoryName(externalFolderName);
     }

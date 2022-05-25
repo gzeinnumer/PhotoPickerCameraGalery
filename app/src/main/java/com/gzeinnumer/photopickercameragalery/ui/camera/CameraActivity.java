@@ -5,24 +5,35 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import com.bumptech.glide.Glide;
 import com.gzeinnumer.eeda.helper.FGFile;
+import com.gzeinnumer.eeda.helper.FGPermission;
 import com.gzeinnumer.eeda.helper.imagePicker.FileCompressor;
+import com.gzeinnumer.eeda.helper.model.PermissionsResult;
 import com.gzeinnumer.photopickercameragalery.BuildConfig;
 import com.gzeinnumer.photopickercameragalery.R;
 import com.gzeinnumer.photopickercameragalery.databinding.ActivityCameraBinding;
+import com.gzeinnumer.photopickercameragalery.ui.main.MainActivity;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
+import rebus.permissionutils.PermissionEnum;
+import rebus.permissionutils.PermissionManager;
 
 public class CameraActivity extends AppCompatActivity {
+
+    private static final String TAG = "CameraActivityZein";
 
     private static final int REQUEST_TAKE_PHOTO = 2;
     public static String KEY_PATH = "path";
