@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhotoPickerCameraGalery">
         <activity
+            android:name=".ui.withDesc.WithDescActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.camera.CameraActivity"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />

@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.main.MainActivity">
+    android:orientation="vertical">
 
     <include
         android:id="@+id/pp"
-        layout="@layout/widget_photo_picker" />
+        layout="@layout/widget_photo_picker_desc" />
 
     <Button
         android:id="@+id/btn_path"
@@ -17,12 +16,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Get path" />
-
-    <Button
-        android:id="@+id/btn_with_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Example With Desc" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

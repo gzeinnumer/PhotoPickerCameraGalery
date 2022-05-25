@@ -1,4 +1,4 @@
-package com.gzeinnumer.photopickercameragalery.ui.main;
+package com.gzeinnumer.photopickercameragalery.ui.withDesc;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -12,23 +12,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.gzeinnumer.photopickercameragalery.adapter.PhotoAdapter;
-import com.gzeinnumer.photopickercameragalery.databinding.ActivityMainBinding;
-import com.gzeinnumer.photopickercameragalery.ui.dialog.pickImage.PickImageDialog;
+import com.gzeinnumer.photopickercameragalery.adapter.PhotoDescAdapter;
+import com.gzeinnumer.photopickercameragalery.databinding.ActivityWithDescBinding;
 import com.gzeinnumer.photopickercameragalery.ui.camera.CameraActivity;
+import com.gzeinnumer.photopickercameragalery.ui.dialog.pickImage.PickImageDialog;
 import com.gzeinnumer.photopickercameragalery.ui.galery.GaleryActivity;
-import com.gzeinnumer.photopickercameragalery.ui.withDesc.WithDescActivity;
 
-public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
+public class WithDescActivity extends AppCompatActivity {
+    private ActivityWithDescBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityWithDescBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setTitle("Main");
+        setTitle("WithDesc");
 
         initView();
     }
@@ -41,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
                 path.append(i).append(". ").append(adapterPhoto.getList().get(i)).append("\n");
             }
             Toast.makeText(getApplicationContext(), path.toString(), Toast.LENGTH_SHORT).show();
-        });
-
-        binding.btnWithDesc.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), WithDescActivity.class);
-            startActivity(intent);
         });
     }
 
@@ -63,21 +57,21 @@ public class MainActivity extends AppCompatActivity {
         String message = data.getStringExtra(CameraActivity.KEY_PATH);
         int position = data.getIntExtra(CameraActivity.KEY_POSITION, 0);
         if (position == -1)
-            adapterPhoto.add(message);
+            adapterPhoto.add(new PhotoDescAdapter.ModelDesc(message,""));
         else
-            adapterPhoto.updateList(position, message);
+            adapterPhoto.updateList(position, new PhotoDescAdapter.ModelDesc(message,""));
     }
 
-    private PhotoAdapter adapterPhoto;
+    private PhotoDescAdapter adapterPhoto;
 
     private void initImageAdapter() {
-        adapterPhoto = new PhotoAdapter(getSupportFragmentManager(), 4);
+        adapterPhoto = new PhotoDescAdapter(getSupportFragmentManager(), 4);
         binding.pp.rv.setAdapter(adapterPhoto);
         adapterPhoto.setCallbackVisibilty(visibility -> {
             binding.pp.cvAddItem.setVisibility(visibility);
         });
 
-        adapterPhoto.setCallbackImage(new PhotoAdapter.CallbackImage() {
+        adapterPhoto.setCallbackImage(new PhotoDescAdapter.CallbackImage() {
             @Override
             public void imageEdit(int adapterPosition) {
 //                pickFile(PickImageDialog.FileFrom.CAMERA, adapterPosition);

@@ -23,6 +23,11 @@
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/layout/photo_picker.xml" value="0.225" />
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/layout/widget_photo_picker.xml" value="0.22153846153846155" />
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/xml/file_provider_paths.xml" value="0.38645833333333335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_with_desc.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/item_photo.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/item_photo_desc.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/widget_photo_picker_desc.xml" value="0.37604166666666666" />
       </map>
     </option>
   </component>
