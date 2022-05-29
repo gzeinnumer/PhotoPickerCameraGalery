@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.gzeinnumer.photopickercameragalery.adapter.PhotoAdapter;
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         adapterPhoto.setCallbackVisibilty(visibility -> {
             binding.pp.cvAddItem.setVisibility(visibility);
         });
+        binding.pp.cvAddItem.setVisibility(View.VISIBLE);
 
         adapterPhoto.setCallbackImage(new PhotoAdapter.CallbackImage() {
             @Override
