@@ -39,7 +39,7 @@
                         <TextView
                             android:id="@+id/tv_toolbar"
                             style="@style/MyCostumToolbarTitle"
-                            android:text="Ambil Foto" />
+                            android:text="Select Foto" />
                     </LinearLayout>
                 </com.google.android.material.appbar.MaterialToolbar>
             </com.google.android.material.appbar.AppBarLayout>
@@ -65,7 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:scaleType="centerInside"
-                        android:src="@drawable/ic_baseline_camera_alt_24" />
+                        android:src="@drawable/ic_baseline_galery_alt_24" />
 
                     <TextView
                         android:id="@+id/tv_path"
@@ -78,7 +78,7 @@
                     android:id="@+id/btn_simpan"
                     style="@style/MyButtonContained"
                     android:layout_width="match_parent"
-                    android:text="Ambil Foto" />
+                    android:text="Select Foto" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

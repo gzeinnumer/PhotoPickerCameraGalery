@@ -39,7 +39,7 @@
                         <TextView
                             android:id="@+id/tv_toolbar"
                             style="@style/MyCostumToolbarTitle"
-                            android:text="Ambil Foto" />
+                            android:text="Capture Foto" />
                     </LinearLayout>
                 </com.google.android.material.appbar.MaterialToolbar>
             </com.google.android.material.appbar.AppBarLayout>
@@ -78,7 +78,7 @@
                     android:id="@+id/btn_simpan"
                     style="@style/MyButtonContained"
                     android:layout_width="match_parent"
-                    android:text="Ambil Foto" />
+                    android:text="Capture Foto" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

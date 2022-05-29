@@ -23,8 +23,22 @@
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/layout/photo_picker.xml" value="0.225" />
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/layout/widget_photo_picker.xml" value="0.22153846153846155" />
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/xml/file_provider_paths.xml" value="0.38645833333333335" />
+        <entry key="app/src/main/res/drawable/dialog_preview_image_black.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/drawable/ic_baseline_galery_alt_24.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/drawable/pp_camera.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/drawable/pp_cancel.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/drawable/pp_card_edge_purple.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/drawable/pp_delete_red.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/drawable/pp_galery.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/drawable/pp_ic_no_image.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/drawable/shape_white.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/layout/activity_camera.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/activity_galery.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_with_desc.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/dialog_pick_image.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/item_photo.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/item_photo_desc.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/widget_photo_picker_desc.xml" value="0.37604166666666666" />
