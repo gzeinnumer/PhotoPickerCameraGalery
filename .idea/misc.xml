@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../.gradle/caches/transforms-2/files-2.1/5a55a03bae41c2366bba1c67c2be8cb6/jetified-SimpleMaterialStyle-2.3.3/res/drawable-anydpi-v21/no_image.xml" value="0.1745" />
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/drawable/card_edge_purple.xml" value="0.2777777777777778" />
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/drawable/dialog_preview_image_black.xml" value="0.24114583333333334" />
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.2777777777777778" />
@@ -23,6 +24,7 @@
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/layout/photo_picker.xml" value="0.225" />
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/layout/widget_photo_picker.xml" value="0.22153846153846155" />
         <entry key="..\:/VIDEO/PEMOGRAMANMOBILE/PhotoPickerCameraGalery/app/src/main/res/xml/file_provider_paths.xml" value="0.38645833333333335" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1745" />
         <entry key="app/src/main/res/drawable/dialog_preview_image_black.xml" value="0.32592592592592595" />
         <entry key="app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.3861538461538462" />
         <entry key="app/src/main/res/drawable/ic_baseline_galery_alt_24.xml" value="0.3861538461538462" />
@@ -37,10 +39,13 @@
         <entry key="app/src/main/res/layout/activity_camera.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_galery.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/activity_with_desc.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/dialog_pick_image.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/dialog_preview_image.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/item_photo.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/item_photo_desc.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/widget_photo_picker.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/widget_photo_picker_desc.xml" value="0.37604166666666666" />
       </map>
     </option>

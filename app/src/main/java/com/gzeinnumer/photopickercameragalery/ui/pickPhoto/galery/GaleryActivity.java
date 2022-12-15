@@ -1,4 +1,4 @@
-package com.gzeinnumer.photopickercameragalery.ui.galery;
+package com.gzeinnumer.photopickercameragalery.ui.pickPhoto.galery;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,13 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.gzeinnumer.bu.utils.MBUtilsString;
 import com.gzeinnumer.eeda.helper.FGFile;
 import com.gzeinnumer.eeda.helper.FGPermission;
 import com.gzeinnumer.eeda.helper.imagePicker.FileCompressor;
 import com.gzeinnumer.eeda.helper.model.PermissionsResult;
 import com.gzeinnumer.photopickercameragalery.R;
 import com.gzeinnumer.photopickercameragalery.databinding.ActivityGaleryBinding;
-import com.gzeinnumer.photopickercameragalery.ui.main.MainActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -151,9 +151,10 @@ public class GaleryActivity extends AppCompatActivity {
             if (requestCode == REQUEST_TAKE_PHOTO) {
                 Uri selectedImage = data.getData();
                 try {
-                    mPhotoFile = mCompressor.compressToFile(new File(FGFile.getRealPathFromUri(getApplicationContext(), selectedImage)));
+                    String filePath = MBUtilsString.getPath(getApplicationContext(), selectedImage);
 
-                    if (validateFileSize(mPhotoFile.toString())){
+                    if (validateFileSize(filePath)){
+                        mPhotoFile = mCompressor.compressToFile(new File(FGFile.getRealPathFromUri(getApplicationContext(), selectedImage)));
                         binding.tvPath.setText(mPhotoFile.toString());
                         Glide.with(GaleryActivity.this)
                                 .load(mPhotoFile)

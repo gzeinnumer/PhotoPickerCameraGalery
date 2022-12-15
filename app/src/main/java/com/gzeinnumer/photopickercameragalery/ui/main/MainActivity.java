@@ -15,10 +15,10 @@ import android.widget.Toast;
 
 import com.gzeinnumer.photopickercameragalery.adapter.PhotoAdapter;
 import com.gzeinnumer.photopickercameragalery.databinding.ActivityMainBinding;
-import com.gzeinnumer.photopickercameragalery.ui.dialog.pickImage.PickImageDialog;
-import com.gzeinnumer.photopickercameragalery.ui.camera.CameraActivity;
-import com.gzeinnumer.photopickercameragalery.ui.galery.GaleryActivity;
-import com.gzeinnumer.photopickercameragalery.ui.withDesc.WithDescActivity;
+import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.dialog.pickImage.PickImageDialog;
+import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.camera.CameraActivity;
+import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.galery.GaleryActivity;
+import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.withDesc.WithDescActivity;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;

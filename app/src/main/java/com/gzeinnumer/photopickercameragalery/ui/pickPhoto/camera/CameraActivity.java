@@ -1,35 +1,26 @@
-package com.gzeinnumer.photopickercameragalery.ui.camera;
+package com.gzeinnumer.photopickercameragalery.ui.pickPhoto.camera;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import com.bumptech.glide.Glide;
 import com.gzeinnumer.eeda.helper.FGFile;
-import com.gzeinnumer.eeda.helper.FGPermission;
 import com.gzeinnumer.eeda.helper.imagePicker.FileCompressor;
-import com.gzeinnumer.eeda.helper.model.PermissionsResult;
 import com.gzeinnumer.photopickercameragalery.BuildConfig;
 import com.gzeinnumer.photopickercameragalery.R;
 import com.gzeinnumer.photopickercameragalery.databinding.ActivityCameraBinding;
-import com.gzeinnumer.photopickercameragalery.ui.main.MainActivity;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-
-import rebus.permissionutils.PermissionEnum;
-import rebus.permissionutils.PermissionManager;
 
 public class CameraActivity extends AppCompatActivity {
 
@@ -125,15 +116,19 @@ public class CameraActivity extends AppCompatActivity {
                 try {
                     //setelah foto diambil, dan tampil di preview maka akan lansung disimpan ke folder yang di sudah diset sebelumnya
                     mPhotoFile = mCompressor.compressToFile(mPhotoFile);
-                    binding.tvPath.setText(mPhotoFile.toString());
-                    Glide.with(CameraActivity.this)
-                            .load(mPhotoFile)
-                            .error(R.drawable.pp_ic_no_image)
-                            .placeholder(R.drawable.pp_ic_no_image)
-                            .into(binding.imgFoto);
+                    if (validateFileSize(mPhotoFile.toString())) {
+                        binding.tvPath.setText(mPhotoFile.toString());
+                        Glide.with(CameraActivity.this)
+                                .load(mPhotoFile)
+                                .error(R.drawable.pp_ic_no_image)
+                                .placeholder(R.drawable.pp_ic_no_image)
+                                .into(binding.imgFoto);
 
-                    if (mPhotoFile.length() > 0) {
-                        binding.btnSimpan.setText("Simpan");
+                        if (mPhotoFile.length() > 0) {
+                            binding.btnSimpan.setText("Simpan");
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Ukuran file tidak boleh melebihi 10MB.", Toast.LENGTH_SHORT).show();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -144,5 +139,16 @@ public class CameraActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    //return false if file size more than 20 mB
+    public boolean validateFileSize(String path) {
+        File file = new File(path);
+
+        long fileSizeInBytes = file.length();
+        long fileSizeInKB = fileSizeInBytes / 1024;
+        long fileSizeInMB = fileSizeInKB / 1024;
+
+        return fileSizeInMB <= 10;
     }
 }

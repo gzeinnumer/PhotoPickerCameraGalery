@@ -1,4 +1,4 @@
-package com.gzeinnumer.photopickercameragalery.ui.withDesc;
+package com.gzeinnumer.photopickercameragalery.ui.pickPhoto.withDesc;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 import com.gzeinnumer.photopickercameragalery.adapter.PhotoDescAdapter;
 import com.gzeinnumer.photopickercameragalery.databinding.ActivityWithDescBinding;
-import com.gzeinnumer.photopickercameragalery.ui.camera.CameraActivity;
-import com.gzeinnumer.photopickercameragalery.ui.dialog.pickImage.PickImageDialog;
-import com.gzeinnumer.photopickercameragalery.ui.galery.GaleryActivity;
+import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.camera.CameraActivity;
+import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.dialog.pickImage.PickImageDialog;
+import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.galery.GaleryActivity;
 
 public class WithDescActivity extends AppCompatActivity {
     private ActivityWithDescBinding binding;

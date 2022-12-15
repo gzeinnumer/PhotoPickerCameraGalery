@@ -1,4 +1,4 @@
-package com.gzeinnumer.photopickercameragalery.ui.dialog.pickImage;
+package com.gzeinnumer.photopickercameragalery.ui.pickPhoto.dialog.pickImage;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

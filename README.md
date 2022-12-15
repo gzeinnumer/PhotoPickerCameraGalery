@@ -3,6 +3,10 @@
 |![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/preview/preview1.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/preview/preview2.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/preview/preview3.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/preview/preview4.jpg)|![](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/preview/preview5.jpg)|
 |---|---|---|---|---|
 
+```xml
+android:configChanges="orientation|screenSize|keyboardHidden"
+```
+
 - [AndroidManifest.xml](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/AndroidManifest.xml)
 - app
   - adapter
@@ -13,17 +17,18 @@
       - [DialogPreviewImage.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/helper/dpi/DialogPreviewImage.java)
       - [DialogPreviewImageSetting.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/helper/dpi/DialogPreviewImageSetting.java)
   - ui
-    - camera
-      - [CameraActivity.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/ui/camera/CameraActivity.java)
-    - dialog
-      - pickImage
-        - [PickImageDialog.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/ui/dialog/pickImage/PickImageDialog.java)
-    - galery
-      - [GaleryActivity.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/ui/galery/GaleryActivity.java)
     - main
       - [MainActivity.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/ui/main/MainActivity.java)
-    - withDecs
-      - [WithDescActivity.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/ui/withDesc/WithDescActivity.java)
+    - pickPhoto
+      - camera
+        - [CameraActivity.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/ui/pickPhoto/camera/CameraActivity.java)
+      - withDecs
+        - [WithDescActivity.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/ui/pickPhoto/withDesc/WithDescActivity.java)
+      - galery
+        - [GaleryActivity.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/ui/pickPhoto/galery/GaleryActivity.java)
+      - dialog
+        - pickImage
+          - [PickImageDialog.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/ui/pickPhoto/dialog/pickImage/PickImageDialog.java)
     - splash
       - [SplashScreenActivity.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/ui/splash/SplashScreenActivity.java)
   - [MyApp.java](https://github.com/gzeinnumer/PhotoPickerCameraGalery/blob/master/app/src/main/java/com/gzeinnumer/photopickercameragalery/MyApp.java)
