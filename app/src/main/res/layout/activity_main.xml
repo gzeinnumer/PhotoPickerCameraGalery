@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/pp"
-        layout="@layout/widget_photo_picker" />
+        layout="@layout/widget_photo_picker_v4" />
 
     <Button
         android:id="@+id/btn_path"

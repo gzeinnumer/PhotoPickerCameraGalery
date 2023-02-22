@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.gzeinnumer.photopickercameragalery.adapter.PhotoAdapter;
+import com.gzeinnumer.photopickercameragalery.adapter.PhotoAdapterV4;
 import com.gzeinnumer.photopickercameragalery.databinding.ActivityMainBinding;
 import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.dialog.pickImage.PickImageDialog;
 import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.camera.CameraActivity;
@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         initImageAdapter();
         binding.btnPath.setOnClickListener(v -> {
             StringBuilder path = new StringBuilder();
-            for (int i = 0; i < adapterPhoto.getList().size(); i++) {
-                path.append(i).append(". ").append(adapterPhoto.getList().get(i)).append("\n");
+            for (int i = 0; i < adapterPhotoV4.getList().size(); i++) {
+                path.append(i).append(". ").append(adapterPhotoV4.getList().get(i)).append("\n");
             }
             Toast.makeText(getApplicationContext(), path.toString(), Toast.LENGTH_SHORT).show();
         });
@@ -64,22 +64,22 @@ public class MainActivity extends AppCompatActivity {
         String message = data.getStringExtra(CameraActivity.KEY_PATH);
         int position = data.getIntExtra(CameraActivity.KEY_POSITION, 0);
         if (position == -1)
-            adapterPhoto.add(message);
+            adapterPhotoV4.add(message);
         else
-            adapterPhoto.updateList(position, message);
+            adapterPhotoV4.updateList(position, message);
     }
 
-    private PhotoAdapter adapterPhoto;
+    private PhotoAdapterV4 adapterPhotoV4;
 
     private void initImageAdapter() {
-        adapterPhoto = new PhotoAdapter(getSupportFragmentManager(), 4);
-        binding.pp.rv.setAdapter(adapterPhoto);
-        adapterPhoto.setCallbackVisibilty(visibility -> {
+        adapterPhotoV4 = new PhotoAdapterV4(getSupportFragmentManager(), 4);
+        binding.pp.rv.setAdapter(adapterPhotoV4);
+        adapterPhotoV4.setCallbackVisibilty(visibility -> {
             binding.pp.cvAddItem.setVisibility(visibility);
         });
         binding.pp.cvAddItem.setVisibility(View.VISIBLE);
 
-        adapterPhoto.setCallbackImage(new PhotoAdapter.CallbackImage() {
+        adapterPhotoV4.setCallbackImage(new PhotoAdapterV4.CallbackImage() {
             @Override
             public void imageEdit(int adapterPosition) {
 //                pickFile(PickImageDialog.FileFrom.CAMERA, adapterPosition);
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void imageDelete(int adapterPosition) {
-                adapterPhoto.removeList(adapterPosition);
+                adapterPhotoV4.removeList(adapterPosition);
             }
         });
 

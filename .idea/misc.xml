@@ -47,6 +47,7 @@
         <entry key="app/src/main/res/layout/item_photo_desc.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/widget_photo_picker.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/widget_photo_picker_desc.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/widget_photo_picker_v4.xml" value="0.2921875" />
       </map>
     </option>
   </component>

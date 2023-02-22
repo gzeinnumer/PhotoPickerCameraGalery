@@ -10,21 +10,21 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.gzeinnumer.photopickercameragalery.databinding.ItemPhotoBinding;
+import com.gzeinnumer.photopickercameragalery.databinding.ItemPhotoV4Binding;
 import com.gzeinnumer.photopickercameragalery.helper.dpi.DialogPreviewImage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
+public class PhotoAdapterV4 extends RecyclerView.Adapter<PhotoAdapterV4.MyHolder> {
 
     private final ArrayList<String> list;
-    private ArrayList<ItemPhotoBinding> holders;
+    private ArrayList<ItemPhotoV4Binding> holders;
     private final FragmentManager fragmentManager;
     private int max;
     private int type = 1; //1->input 2->display
 
-    public PhotoAdapter(FragmentManager fragmentManager, int max) {
+    public PhotoAdapterV4(FragmentManager fragmentManager, int max) {
         this.fragmentManager = fragmentManager;
         this.max = max;
         this.list = new ArrayList<>();
@@ -38,11 +38,11 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
         }
     }
 
-    public List<ItemPhotoBinding> getHolders() {
+    public List<ItemPhotoV4Binding> getHolders() {
         return holders;
     }
 
-    public PhotoAdapter(FragmentManager fragmentManager, int max, int type) {
+    public PhotoAdapterV4(FragmentManager fragmentManager, int max, int type) {
         this.fragmentManager = fragmentManager;
         this.max = max;
         this.type = type;
@@ -95,12 +95,12 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyHolder(ItemPhotoBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new MyHolder(ItemPhotoV4Binding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, @SuppressLint("RecyclerView") int position) {
-        holders.set(position, ItemPhotoBinding.bind(holder.itemBinding.getRoot()));
+        holders.set(position, ItemPhotoV4Binding.bind(holder.itemBinding.getRoot()));
         holder.bindData(list.get(position), callbackVisibilty, callbackImage, type, fragmentManager);
     }
 
@@ -132,9 +132,9 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyHolder> {
 
     public static class MyHolder extends RecyclerView.ViewHolder {
 
-        public ItemPhotoBinding itemBinding;
+        public ItemPhotoV4Binding itemBinding;
 
-        public MyHolder(@NonNull ItemPhotoBinding itemView) {
+        public MyHolder(@NonNull ItemPhotoV4Binding itemView) {
             super(itemView.getRoot());
             itemBinding = itemView;
         }

@@ -8,7 +8,7 @@
         android:id="@+id/rv"
         style="@style/PhotoPickerT2"
         tools:itemCount="1"
-        tools:listitem="@layout/item_photo" />
+        tools:listitem="@layout/item_photo_v4" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_add_item"
