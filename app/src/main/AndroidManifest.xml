@@ -21,18 +21,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhotoPickerCameraGalery">
         <activity
-            android:name=".ui.pickPhoto.withDesc.WithDescActivity"
-            android:exported="true" />
-        <activity
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:name=".ui.pickPhoto.camera.CameraActivity"
-            android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
-            android:name=".ui.pickPhoto.galery.GaleryActivity"
-            android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity
             android:name=".ui.main.MainActivity"
             android:exported="false" />
         <activity

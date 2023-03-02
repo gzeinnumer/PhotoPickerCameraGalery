@@ -1,24 +1,20 @@
 package com.gzeinnumer.photopickercameragalery.ui.main;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
-import android.app.Activity;
-import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.gzeinnumer.photopickercameragalery.adapter.PhotoAdapter;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
+import com.gzeinnumer.photopickercameragalery.R;
 import com.gzeinnumer.photopickercameragalery.databinding.ActivityMainBinding;
-import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.dialog.pickImage.PickImageDialog;
-import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.camera.CameraActivity;
-import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.galery.GaleryActivity;
-import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.withDesc.WithDescActivity;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -35,95 +31,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        initImageAdapter();
-        binding.btnPath.setOnClickListener(v -> {
-            StringBuilder path = new StringBuilder();
-            for (int i = 0; i < adapterPhoto.getList().size(); i++) {
-                path.append(i).append(". ").append(adapterPhoto.getList().get(i)).append("\n");
-            }
-            Toast.makeText(getApplicationContext(), path.toString(), Toast.LENGTH_SHORT).show();
-        });
+        ArrayList<String> data = new ArrayList<>();
+        data.add("storage/emulated/0/DistributorAdvisor/Foto/20221202131022_6788790416421463523.jpg");
+        data.add("storage/emulated/0/DistributorAdvisor/Foto/20221202131022_6788790416421463523.jpg");
+        data.add("storage/emulated/0/DistributorAdvisor/Foto/20221202131022_6788790416421463523.jpg");
 
-        binding.btnWithDesc.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), WithDescActivity.class);
-            startActivity(intent);
-        });
-    }
+        final View[] views = new View[data.size()];
+        for (int i = 0; i < data.size(); i++) {
+            views[i] = LayoutInflater.from(this).inflate(R.layout.item_photo_no_rv, null);
+            ImageView img = views[i].findViewById(R.id.img);
+            TextView tvPath = views[i].findViewById(R.id.tv_path);
+            TextView tvMoreDetail = views[i].findViewById(R.id.tv_more_detail);
 
-    private final ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if (result.getResultCode() == Activity.RESULT_OK) {
-                    // There are no request codes
-                    Intent data = result.getData();
-                    setPath(data);
-                }
-            });
+            File imgFile = new File(data.get(i));
+            img.setImageURI(Uri.fromFile(imgFile));
+            tvMoreDetail.setText(i+"");
 
-    private void setPath(Intent data) {
-        String message = data.getStringExtra(CameraActivity.KEY_PATH);
-        int position = data.getIntExtra(CameraActivity.KEY_POSITION, 0);
-        if (position == -1)
-            adapterPhoto.add(message);
-        else
-            adapterPhoto.updateList(position, message);
-    }
+            tvPath.setText(data.get(i));
 
-    private PhotoAdapter adapterPhoto;
+            ///storage/emulated/0/DistributorAdvisor/Foto/20221202131022_6788790416421463523a.jpg
 
-    private void initImageAdapter() {
-        adapterPhoto = new PhotoAdapter(getSupportFragmentManager(), 4);
-        binding.pp.rv.setAdapter(adapterPhoto);
-        adapterPhoto.setCallbackVisibilty(visibility -> {
-            binding.pp.cvAddItem.setVisibility(visibility);
-        });
-        binding.pp.cvAddItem.setVisibility(View.VISIBLE);
-
-        adapterPhoto.setCallbackImage(new PhotoAdapter.CallbackImage() {
-            @Override
-            public void imageEdit(int adapterPosition) {
-//                pickFile(PickImageDialog.FileFrom.CAMERA, adapterPosition);
-                openDialog(adapterPosition);
-            }
-
-            @Override
-            public void imageDelete(int adapterPosition) {
-                adapterPhoto.removeList(adapterPosition);
-            }
-        });
-
-        binding.pp.rv.hasFixedSize();
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-        binding.pp.rv.setLayoutManager(layoutManager);
-
-        binding.pp.cvAddItem.setOnClickListener(view -> {
-//            pickFile(PickImageDialog.FileFrom.CAMERA, -1);
-            openDialog(-1);
-        });
-    }
-
-    private void openDialog(int adapterPosition) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        Fragment previous = getSupportFragmentManager().findFragmentByTag(PickImageDialog.TAG);
-        if (previous != null) {
-            transaction.remove(previous);
+            binding.ln.addView(views[i]);
         }
-        PickImageDialog dialog = PickImageDialog.newInstance(type -> {
-            pickFile(type, adapterPosition);
-        });
-        dialog.show(transaction, PickImageDialog.TAG);
-    }
-
-    private void pickFile(PickImageDialog.FileFrom type, int adapterPosition) {
-        Intent intent;
-        if (type == PickImageDialog.FileFrom.CAMERA) {
-            intent = new Intent(getApplicationContext(), CameraActivity.class);
-            intent.putExtra(CameraActivity.KEY_TITLE, "Foto Camera");
-        } else {
-            intent = new Intent(getApplicationContext(), GaleryActivity.class);
-            intent.putExtra(GaleryActivity.KEY_TITLE, "Foto Galery");
-        }
-        intent.putExtra(CameraActivity.KEY_POSITION, adapterPosition);
-        someActivityResultLauncher.launch(intent);
     }
 }
