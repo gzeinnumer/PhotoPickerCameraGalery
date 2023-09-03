@@ -45,6 +45,7 @@
         <entry key="app/src/main/res/layout/dialog_preview_image.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/item_photo.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/item_photo_desc.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/other_activity_photo_item.xml" value="0.303125" />
         <entry key="app/src/main/res/layout/widget_photo_picker.xml" value="0.3182291666666667" />
         <entry key="app/src/main/res/layout/widget_photo_picker_desc.xml" value="0.37604166666666666" />
       </map>

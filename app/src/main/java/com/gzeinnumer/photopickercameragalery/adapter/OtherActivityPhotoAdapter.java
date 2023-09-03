@@ -12,21 +12,21 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.gzeinnumer.photopickercameragalery.databinding.ItemPhotoDescBinding;
+import com.gzeinnumer.photopickercameragalery.databinding.OtherActivityPhotoItemBinding;
 import com.gzeinnumer.photopickercameragalery.helper.dpi.DialogPreviewImage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhotoDescAdapter extends RecyclerView.Adapter<PhotoDescAdapter.MyHolder> {
+public class OtherActivityPhotoAdapter extends RecyclerView.Adapter<OtherActivityPhotoAdapter.MyHolder> {
 
     private final ArrayList<ModelDesc> list;
-    private ArrayList<ItemPhotoDescBinding> holders;
+    private ArrayList<OtherActivityPhotoItemBinding> holders;
     private final FragmentManager fragmentManager;
     private int max;
     private int type = 1; //1->input 2->display
 
-    public PhotoDescAdapter(FragmentManager fragmentManager, int max) {
+    public OtherActivityPhotoAdapter(FragmentManager fragmentManager, int max) {
         this.fragmentManager = fragmentManager;
         this.max = max;
         this.list = new ArrayList<>();
@@ -40,11 +40,11 @@ public class PhotoDescAdapter extends RecyclerView.Adapter<PhotoDescAdapter.MyHo
         }
     }
 
-    public List<ItemPhotoDescBinding> getHolders() {
+    public List<OtherActivityPhotoItemBinding> getHolders() {
         return holders;
     }
 
-    public PhotoDescAdapter(FragmentManager fragmentManager, int max, int type) {
+    public OtherActivityPhotoAdapter(FragmentManager fragmentManager, int max, int type) {
         this.fragmentManager = fragmentManager;
         this.max = max;
         this.type = type;
@@ -97,12 +97,12 @@ public class PhotoDescAdapter extends RecyclerView.Adapter<PhotoDescAdapter.MyHo
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyHolder(ItemPhotoDescBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new MyHolder(OtherActivityPhotoItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, @SuppressLint("RecyclerView") int position) {
-        holders.set(position, ItemPhotoDescBinding.bind(holder.itemBinding.getRoot()));
+        holders.set(position, OtherActivityPhotoItemBinding.bind(holder.itemBinding.getRoot()));
         holder.bindData(list.get(position), callbackVisibilty, callbackImage, type, fragmentManager);
     }
 
@@ -134,9 +134,9 @@ public class PhotoDescAdapter extends RecyclerView.Adapter<PhotoDescAdapter.MyHo
 
     public static class MyHolder extends RecyclerView.ViewHolder {
 
-        public ItemPhotoDescBinding itemBinding;
+        public OtherActivityPhotoItemBinding itemBinding;
 
-        public MyHolder(@NonNull ItemPhotoDescBinding itemView) {
+        public MyHolder(@NonNull OtherActivityPhotoItemBinding itemView) {
             super(itemView.getRoot());
             itemBinding = itemView;
         }

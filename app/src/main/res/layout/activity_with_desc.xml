@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/pp"
-        layout="@layout/widget_photo_picker_desc" />
+        layout="@layout/other_activity_widget_photo_picker_desc" />
 
     <Button
         android:id="@+id/btn_path"

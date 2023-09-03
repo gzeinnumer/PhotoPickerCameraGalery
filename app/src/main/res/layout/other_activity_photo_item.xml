@@ -8,7 +8,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_image"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/space_half"
         android:layout_marginTop="@dimen/space"
@@ -17,14 +17,13 @@
         app:cardBackgroundColor="@color/white_low_v2"
         app:cardCornerRadius="@dimen/radius"
         app:cardElevation="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@id/img_delete">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/img"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:src="@drawable/pp_ic_no_image" />
@@ -54,14 +53,13 @@
         tools:visibility="visible" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/space_half"
         android:hint="Content"
-        app:layout_constraintBottom_toBottomOf="@id/cv_image"
         app:layout_constraintLeft_toRightOf="@id/cv_image"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/cv_image">
+        app:layout_constraintTop_toBottomOf="@id/cv_image">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ed_content"

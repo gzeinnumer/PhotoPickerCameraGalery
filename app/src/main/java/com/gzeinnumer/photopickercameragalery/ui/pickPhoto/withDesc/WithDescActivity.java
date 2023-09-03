@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.gzeinnumer.photopickercameragalery.adapter.PhotoDescAdapter;
+import com.gzeinnumer.photopickercameragalery.adapter.OtherActivityPhotoAdapter;
 import com.gzeinnumer.photopickercameragalery.databinding.ActivityWithDescBinding;
 import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.camera.CameraActivity;
 import com.gzeinnumer.photopickercameragalery.ui.pickPhoto.dialog.pickImage.PickImageDialog;
@@ -58,22 +58,22 @@ public class WithDescActivity extends AppCompatActivity {
         String message = data.getStringExtra(CameraActivity.KEY_PATH);
         int position = data.getIntExtra(CameraActivity.KEY_POSITION, 0);
         if (position == -1)
-            adapterPhoto.add(new PhotoDescAdapter.ModelDesc(message,""));
+            adapterPhoto.add(new OtherActivityPhotoAdapter.ModelDesc(message,""));
         else
-            adapterPhoto.updateList(position, new PhotoDescAdapter.ModelDesc(message,""));
+            adapterPhoto.updateList(position, new OtherActivityPhotoAdapter.ModelDesc(message,""));
     }
 
-    private PhotoDescAdapter adapterPhoto;
+    private OtherActivityPhotoAdapter adapterPhoto;
 
     private void initImageAdapter() {
-        adapterPhoto = new PhotoDescAdapter(getSupportFragmentManager(), 4);
+        adapterPhoto = new OtherActivityPhotoAdapter(getSupportFragmentManager(), 4);
         binding.pp.rv.setAdapter(adapterPhoto);
         adapterPhoto.setCallbackVisibilty(visibility -> {
             binding.pp.cvAddItem.setVisibility(visibility);
         });
         binding.pp.cvAddItem.setVisibility(View.VISIBLE);
 
-        adapterPhoto.setCallbackImage(new PhotoDescAdapter.CallbackImage() {
+        adapterPhoto.setCallbackImage(new OtherActivityPhotoAdapter.CallbackImage() {
             @Override
             public void imageEdit(int adapterPosition) {
 //                pickFile(PickImageDialog.FileFrom.CAMERA, adapterPosition);
